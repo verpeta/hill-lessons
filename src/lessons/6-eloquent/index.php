@@ -44,8 +44,13 @@ class Product extends \Illuminate\Database\Eloquent\Model
 //
 
 
-$p = Product::find(1);
-var_dump($p->orders->toArray());
+$product1 = Product::find(1);
+
+
+$product1->orders()->attach([])
+
+
+var_dump($product1->orders->toArray());
 
 
 
