@@ -54,7 +54,7 @@ services:
       - demo-proxy.network
     labels:
       - traefik.enable=true
-      - traefik.tcp.services.demo-redis.loadBalancer.server.port=6379
+      - traefik.tcp.services.demo-redis.loadBalancer.server.port=6380
       - traefik.tcp.routers.demo-redis.entrypoints=redis
       - traefik.tcp.routers.demo-redis.rule=HostSNI(`*`)
       - traefik.tcp.routers.demo-redis.service=demo-redis
@@ -103,14 +103,14 @@ services:
       - --providers.docker.network=demo-proxy.network
       - --providers.docker.useBindPortIP=false
       - --entrypoints.web.address=:80
-      - --entrypoints.redis.address=:6379
+      - --entrypoints.redis.address=:6380
       - --entrypoints.mysql.address=:3306
       - --entrypoints.rabbit.address=:5672
       - --api.dashboard=true
       - --api.insecure=true
     ports:
       - "80:80"
-      - "6379:6379"
+      - "6380:6380"
       - "3306:3306"
       - "5672:5672"
     volumes:
